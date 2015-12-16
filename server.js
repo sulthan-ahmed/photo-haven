@@ -10,6 +10,8 @@ app.set('port', process.env.PORT || 4000);
 app.engine('html', require('hogan-express'));
 app.set('views engine', 'html');
 
+app.use('/', routes);
+
 //Express adds middleware when you use app.use
 //catch 404 issues
 app.use(function(err, req, res, next){
