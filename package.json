@@ -1,0 +1,28 @@
+{
+  "name": "photo-haven",
+  "version": "1.0.0",
+  "description": "photo app using instagram API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sulthan-ahmed/photo-haven.git"
+  },
+  "keywords": [
+    "photos",
+    "instagram"
+  ],
+  "author": "Sulthan Ahmed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sulthan-ahmed/photo-haven/issues"
+  },
+  "homepage": "https://github.com/sulthan-ahmed/photo-haven#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "hogan-express": "^0.5.2"
+  }
+}
