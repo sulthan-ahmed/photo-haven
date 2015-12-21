@@ -1,5 +1,7 @@
 //imports
 var express = require('express');
+var routes = require('./routes/index');
+var path = require('path');
 
 var app = express();
 
@@ -7,8 +9,8 @@ var app = express();
 app.set('port', process.env.PORT || 4000);
 
 // set up view engine
-app.engine('html', require('hogan-express'));
-app.set('views engine', 'html');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hjs');
 
 app.use('/', routes);
 

@@ -23,6 +23,9 @@
   "homepage": "https://github.com/sulthan-ahmed/photo-haven#readme",
   "dependencies": {
     "express": "^4.13.3",
-    "hogan-express": "^0.5.2"
+    "hjs": "0.0.6",
+    "hogan-express": "^0.5.2",
+    "instagram-node": "^0.5.8",
+    "request": "^2.67.0"
   }
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta property="og:title" content="photoMadness" />
+    <meta property="og:type" content="content" />
+    <meta property="og:description" content="this is a test of what can be displayed" />
+    <meta property="og:url" content="https://fierce-garden-8249.herokuapp.com/" />
+    <meta property="og:image" content="http://petapixel.com/assets/uploads/2012/11/stackedclouds-1.jpg" />
+
+    <meta property="og:image" content="http://photoswallpapers.free.fr/images/photos.animaux/photos-wallpapers/plus-jolie-photo.jpg" />
+
+
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1>Welcome to {{ title }}</h1>
+
+<p> This service allows a user with a registered <a href="http://www.instagram.com" ><strong>Instagram</strong></a> account to display a chosen number of photos from instagram based on a defined search parameter</p>
+
+<div class= "social-element" id="linkedIn">
+    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+    <script type="IN/Share" data-url="https://fierce-garden-8249.herokuapp.com/" data-counter="right"></script>
+</div>
+
+{{^isAuthenticated}}
+<div align='centre'>
+    <form action="/authorize_user" method="get">
+        <p>To continue, please press the following button to give this service temporary access to your Instagram account</p>
+        <input type="submit" value="Authenticate with Instagram">
+    </form>
+    {{/isAuthenticated}}
+
+
+    {{#isAuthenticated}}
+    <form action="/search" method="get">
+        <p id="access">you have been authenticated and authorised by Instagram</br>
+            To continue, use the search box below</p>
+
+        {{#searchError}}
+        <p id="error">Unfortunately that search for <strong>{{searchError}}</strong> did not yield any results, please try again with a different parameter<p>
+        {{/searchError}}
+
+        <input class="inputBox" type="text" name="searchTag" placeholder="type photo tag to search for here">
+        <input class="inputBox" type="number" name="quantity" min="1" max="30" placeholder="how many photos? (1-30)"></br>
+        <input class="inputBox" type="submit" class="button" value="Press to Search">
+    </form>
+    {{/isAuthenticated}}
+
+    <!--
+    {{#imageURLs}}
+       <p>image URLs detected</p>
+       {{> display }}
+     {{/imageURLs}}
+
+     {{^imageURLs}}
+           <p>NO image URLs detected</p>
+           {{imageURLs}}
+     {{/imageURLs}}
+     -->
+
+</div>
+</body>
+</html>
